@@ -17,6 +17,9 @@
 # Inherit device configurations
 $(call inherit-product, device/sony/kagura/device.mk)
 
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/pb/config/common.mk)
+
 # Device identification
 PRODUCT_DEVICE := kagura
 PRODUCT_NAME := omni_kagura

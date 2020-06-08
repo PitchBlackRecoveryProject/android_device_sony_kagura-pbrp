@@ -11,8 +11,8 @@ jobs:
       VENDOR: 'sony'
       CODENAME: 'kagura'
       BUILD_LUNCH: 'omni_kagura-eng'
-      # PB_OFFICIAL: 'true'
-      TEST_BUILD: 'true'
+      PB_OFFICIAL: 'true'
+      CHANGELOG: " - Initial build"
     working_directory: /home/builder/pitchblack
     steps: 
       - checkout
@@ -32,5 +32,5 @@ workflows:
       - build:
           filters:
             branches:
-              only: testing
+              only: android-7.1
           context: org-global

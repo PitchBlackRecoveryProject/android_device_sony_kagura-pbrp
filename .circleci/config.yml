@@ -11,8 +11,8 @@ jobs:
       VENDOR: 'sony'
       CODENAME: 'kagura'
       BUILD_LUNCH: 'omni_kagura-eng'
-      PB_OFFICIAL: 'true'
-      CHANGELOG: " - Initial build"
+      TEST_BUILD: 'true'
+      CHANGELOG: " - TEST BUILD"
     working_directory: /home/builder/pitchblack
     steps: 
       - checkout

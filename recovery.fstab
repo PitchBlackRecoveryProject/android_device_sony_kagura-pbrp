@@ -1,6 +1,7 @@
 # mount point    fstype    device               device2		                           flags
 
 /system          ext4      /dev/block/bootdevice/by-name/system                        flags=display="System";
+/system_image    emmc      /dev/block/bootdevice/by-name/system
 /cache           ext4      /dev/block/bootdevice/by-name/cache
 /data            ext4      /dev/block/bootdevice/by-name/userdata                      flags=encryptable=footer;length=-16384
 /boot            emmc      /dev/block/bootdevice/by-name/boot                          flags=backup=1;display="Kernel";

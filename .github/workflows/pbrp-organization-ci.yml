@@ -10,8 +10,6 @@ on:
         description: 'Build ChangeLogs'
         required: true
         default: 'Sync Latest Source'
-  watch:
-    types: [started]
 
 env:
   BUILD_RELEASE_TYPE: ${{ github.event.inputs.DEPLOY_TYPE }}
@@ -24,6 +22,7 @@ env:
   SFPassword: ${{ secrets.SFPassword }}
   SFUserName: ${{ secrets.SFUserName }}
   #TARGET: "define this if your target is not recoveryimage"
+  #EXTRA_CMD: "Extra Commands Here"
 
 jobs:
   PBRP_CI:
@@ -31,6 +30,9 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+       - name: Cleaning Up Runner
+         uses: rokibhasansagar/slimhub_actions@main
+
        - name: Auto Adapt Manifest
          run: echo "MANIFEST=https://github.com/PitchBlackRecoveryProject/manifest_pb -b ${GITHUB_REF##*/}" >> $GITHUB_ENV
 
@@ -41,7 +43,7 @@ jobs:
               if [[ ${BUILD_RELEASE_TYPE} == "OFFICIAL" ]]; then echo "PB_OFFICIAL=true"  >> $GITHUB_ENV;fi
 
        - name: Recovery Compilation
-         uses: Carbonatedblack/Recovery-Compiler@production
+         uses: PitchBlackRecoveryProject/Recovery-Compiler@production
        
        - name: Release Builds 
          run: |
